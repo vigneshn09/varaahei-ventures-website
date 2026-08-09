@@ -1,0 +1,125 @@
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.product-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 46px rgba(11,14,46,0.12);
+}
+
+.product-card__image {
+  aspect-ratio: 16 / 10;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+}
+
+.product-card__image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-card__body {
+  padding: 26px 26px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.product-card__body h3 {
+  font-size: 22px;
+  margin-top: 4px;
+}
+
+.product-card__body > p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(20,24,63,0.66);
+}
+
+.product-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 6px 0 16px;
+}
+
+.product-card__highlights li {
+  font-size: 13.5px;
+  font-weight: 600;
+  padding-left: 18px;
+  position: relative;
+  color: var(--ink);
+}
+
+.product-card__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--orange));
+}
+
+.product-card .btn { margin-top: auto; align-self: flex-start; }
+
+.product-card--placeholder {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  padding: 40px 28px;
+  border-style: dashed;
+  background: var(--cream-dim);
+}
+
+.product-card--placeholder p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(20,24,63,0.5);
+}
+
+.products-empty {
+  text-align: center;
+  padding: 70px 24px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-l);
+  background: var(--cream-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.products-empty p {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-style: italic;
+  color: rgba(20,24,63,0.6);
+}
+
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .products-grid { grid-template-columns: 1fr; }
+}

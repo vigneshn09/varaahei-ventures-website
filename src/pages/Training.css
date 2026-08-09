@@ -1,0 +1,251 @@
+/* ---------- WHY ---------- */
+.training-why__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.training-why h2 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  margin-top: 14px;
+}
+
+.training-why > .training-why__grid > div:first-child p {
+  margin-top: 18px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(20,24,63,0.68);
+}
+
+.training-why__list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.training-why__list h4 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.training-why__list p {
+  font-size: 14.5px;
+  color: rgba(20,24,63,0.62);
+  line-height: 1.6;
+}
+
+.training-why__list > div {
+  padding-left: 18px;
+  border-left: 2px solid var(--saffron);
+}
+
+/* ---------- TRACKS ---------- */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.track-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 32px 30px;
+  overflow: hidden;
+}
+
+.track-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--emerald), var(--saffron));
+}
+
+.track-card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.track-card > p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(20,24,63,0.66);
+  margin-bottom: 18px;
+}
+
+.track-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.track-card li {
+  font-size: 13.5px;
+  font-weight: 600;
+  padding-left: 20px;
+  position: relative;
+  color: var(--ink);
+}
+
+.track-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--emerald);
+  font-size: 12px;
+  top: 1px;
+}
+
+/* ---------- TRAINER ---------- */
+.trainer-section {
+  background: var(--cream-dim);
+  padding: 92px 0;
+}
+
+.trainer-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 46px 48px;
+  box-shadow: 0 24px 60px rgba(11,14,46,0.08);
+}
+
+.trainer-card__badge {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(240,166,58,0.15), rgba(12,107,78,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trainer-card h2 {
+  font-size: clamp(24px, 2.8vw, 32px);
+  margin-top: 12px;
+}
+
+.trainer-card p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(20,24,63,0.7);
+  max-width: 620px;
+}
+
+/* ---------- FORMAT ---------- */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.format-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 28px 24px;
+}
+
+.format-card__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--emerald));
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.format-card h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.format-card p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(20,24,63,0.62);
+}
+
+/* ---------- CTA ---------- */
+.training-cta {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, #17143f 55%, var(--vermilion) 130%);
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+.training-cta::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(240,166,58,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.training-cta__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.training-cta h2 {
+  color: var(--cream);
+  font-size: clamp(26px, 3.4vw, 36px);
+}
+
+.training-cta p {
+  margin-top: 10px;
+  color: rgba(251,246,236,0.65);
+  font-size: 16px;
+}
+
+.training-cta__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.training-cta__email {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.training-cta__email:hover { color: var(--saffron); }
+
+@media (max-width: 900px) {
+  .training-why__grid { grid-template-columns: 1fr; gap: 40px; }
+  .tracks-grid { grid-template-columns: 1fr; }
+  .format-grid { grid-template-columns: 1fr 1fr; }
+  .trainer-card { grid-template-columns: 1fr; text-align: left; }
+  .trainer-card__badge { margin-bottom: 8px; }
+}
+
+@media (max-width: 560px) {
+  .format-grid { grid-template-columns: 1fr; }
+  .trainer-card { padding: 32px 26px; }
+}
