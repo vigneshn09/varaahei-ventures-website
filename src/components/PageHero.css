@@ -1,0 +1,39 @@
+.page-hero {
+  position: relative;
+  padding: 76px 0 60px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.page-hero__scene {
+  position: absolute;
+  top: -10%;
+  right: -6%;
+  width: 52%;
+  height: 130%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero h1 {
+  font-size: clamp(36px, 5.5vw, 58px);
+  margin-top: 16px;
+  max-width: 780px;
+}
+
+.page-hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: rgba(20,24,63,0.68);
+  max-width: 620px;
+}
+
+.page-hero__flame {
+  margin-top: 32px;
+}
