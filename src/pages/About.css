@@ -89,3 +89,15 @@
   .how-detailed__list li { grid-template-columns: 50px 1fr; }
   .how-detailed__list span { font-size: 24px; }
 }
+
+.about-pillars .pillar-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(240,166,58,0.14), rgba(12,107,78,0.1));
+  color: var(--orange);
+  margin-bottom: 14px;
+}

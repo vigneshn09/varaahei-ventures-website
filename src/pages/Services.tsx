@@ -1,10 +1,8 @@
 import PageHero from '../components/PageHero';
-import FlameDivider from '../components/FlameDivider';
+import { categoryIcons } from '../components/ServiceIcons';
 import { Link } from 'react-router-dom';
 import { serviceCatalog } from '../data/content';
 import './Services.css';
-
-const flameColors = ['var(--saffron)', 'var(--emerald)', 'var(--orange)', 'var(--gold)'];
 
 export default function Services() {
   return (
@@ -25,27 +23,30 @@ export default function Services() {
         </div>
       </section>
 
-      {serviceCatalog.map((cat, i) => (
-        <section className="section service-block" id={cat.slug} key={cat.slug}>
-          <div className="container">
-            <div className="service-block__head">
-              <FlameDivider color={flameColors[i % flameColors.length]} />
-              <div>
-                <span className="eyebrow">{cat.category}</span>
-                <p className="service-block__tagline">{cat.tagline}</p>
+      {serviceCatalog.map((cat) => {
+        const Icon = categoryIcons[cat.slug];
+        return (
+          <section className="section service-block" id={cat.slug} key={cat.slug}>
+            <div className="container">
+              <div className="service-block__head">
+                <div className="service-block__icon">{Icon && <Icon />}</div>
+                <div>
+                  <span className="eyebrow">{cat.category}</span>
+                  <p className="service-block__tagline">{cat.tagline}</p>
+                </div>
+              </div>
+              <div className="service-block__list">
+                {cat.services.map((s) => (
+                  <div className="service-row" key={s.name}>
+                    <h3>{s.name}</h3>
+                    <p>{s.examples}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="service-block__list">
-              {cat.services.map((s) => (
-                <div className="service-row" key={s.name}>
-                  <h3>{s.name}</h3>
-                  <p>{s.examples}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       <section className="cta-band">
         <div className="container cta-band__inner">

@@ -1,4 +1,6 @@
 import PageHero from '../components/PageHero';
+import Reveal from '../components/Reveal';
+import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
 import { processSteps } from '../data/content';
 import './About.css';
 
@@ -11,7 +13,7 @@ export default function About() {
         description="Varaahei Ventures is a technology and growth studio based in Coimbatore, working with businesses across India that are ready to move from manual processes to systems that scale with them."
       />
 
-      <section className="section about-who">
+      <Reveal as="section" className="section about-who">
         <div className="container about-who__grid">
           <div className="section-head">
             <span className="eyebrow">Who we are</span>
@@ -26,25 +28,28 @@ export default function About() {
           </div>
           <div className="about-pillars">
             <div>
+              <div className="pillar-card__icon"><TargetIcon /></div>
               <span className="pillar-card__label">Objective</span>
               <h3>Build once, build right</h3>
               <p>Give Indian businesses the same calibre of technology large companies take for granted — without the overhead.</p>
             </div>
             <div>
+              <div className="pillar-card__icon"><VisionIcon /></div>
               <span className="pillar-card__label">Vision</span>
               <h3>A digitally confident India</h3>
               <p>A future where every business, from a single clinic to a growing chain, runs on software built for how they actually work.</p>
             </div>
             <div>
+              <div className="pillar-card__icon"><MissionIcon /></div>
               <span className="pillar-card__label">Mission</span>
               <h3>Understand, then build</h3>
               <p>We spend real time understanding a business before writing a line of code, so what we deliver gets used, not shelved.</p>
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section why-choose">
+      <Reveal as="section" className="section why-choose">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Why choose us</span>
@@ -77,9 +82,9 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section how-detailed">
+      <Reveal as="section" className="section how-detailed">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">How it works</span>
@@ -98,7 +103,7 @@ export default function About() {
             ))}
           </ol>
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }

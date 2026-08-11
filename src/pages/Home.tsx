@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import FlameDivider from '../components/FlameDivider';
 import EmberSceneGate from '../components/EmberSceneGate';
-import logo from '../assets/images/logo.png';
+import Reveal from '../components/Reveal';
+import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
+import { categoryIcons } from '../components/ServiceIcons';
+import logo from '../assets/images/logo-full.png';
 import onnLogo from '../assets/images/onn-realty-logo.png';
 import { processSteps, serviceCatalog } from '../data/content';
 import './Home.css';
@@ -18,7 +21,6 @@ export default function Home() {
         <div className="hero__glow" aria-hidden="true" />
         <div className="container hero__grid">
           <div className="hero__copy">
-            <span className="eyebrow">Coimbatore — Technology &amp; Growth Studio</span>
             <h1>
               We build the systems<br />
               your business <em>runs on.</em>
@@ -35,7 +37,7 @@ export default function Home() {
           </div>
 
           <div className="hero__mark">
-            <div className="hero__mark-plate">
+            <div className="hero__mark-plate float">
               <EmberSceneGate className="hero__ember" />
               <img src={logo} alt="Varaahei Ventures mark" />
             </div>
@@ -46,33 +48,43 @@ export default function Home() {
       {/* ---------- OBJECTIVE / VISION / MISSION ---------- */}
       <section className="section pillars">
         <div className="container pillars__grid">
-          <PillarCard
-            index="Objective"
-            title="Build once, build right"
-            body="To give small and growing Indian businesses the same calibre of technology that large companies take for granted — without the large-company overhead."
-          />
-          <PillarCard
-            index="Vision"
-            title="A digitally confident India"
-            body="A future where every business owner — from a single clinic to a growing chain — runs on software built for exactly how they work, not the other way around."
-          />
-          <PillarCard
-            index="Mission"
-            title="Understand, then build"
-            body="We spend real time understanding a business before writing a line of code, so what we deliver gets used — not shelved."
-          />
+          <Reveal>
+            <PillarCard
+              icon={<TargetIcon />}
+              index="Objective"
+              title="Build once, build right"
+              body="To give small and growing Indian businesses the same calibre of technology that large companies take for granted — without the large-company overhead."
+            />
+          </Reveal>
+          <Reveal delay={1}>
+            <PillarCard
+              icon={<VisionIcon />}
+              index="Vision"
+              title="A digitally confident India"
+              body="A future where every business owner — from a single clinic to a growing chain — runs on software built for exactly how they work, not the other way around."
+            />
+          </Reveal>
+          <Reveal delay={2}>
+            <PillarCard
+              icon={<MissionIcon />}
+              index="Mission"
+              title="Understand, then build"
+              body="We spend real time understanding a business before writing a line of code, so what we deliver gets used — not shelved."
+            />
+          </Reveal>
         </div>
       </section>
 
       {/* ---------- WHY CHOOSE US ---------- */}
-      <section className="section why">
+      <Reveal as="section" className="section why">
         <div className="container why__grid">
           <div className="section-head">
             <span className="eyebrow">Why Varaahei</span>
-            <h2>Built by people who’ve run the terminal, not just the pitch deck</h2>
+            <h2>People who stay with your project, not just the pitch</h2>
             <p>
-              Every project is built end-to-end by the same small, senior team —
-              no handoffs to a junior bench, no lost context between design and code.
+              We believe good software comes from people who genuinely
+              understand your business, stay accountable through every stage,
+              and never hand your project off to someone new halfway through.
             </p>
           </div>
           <ul className="why__list">
@@ -94,10 +106,10 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- HOW IT WORKS ---------- */}
-      <section className="section how">
+      <Reveal as="section" className="section how">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">How it works</span>
@@ -116,29 +128,35 @@ export default function Home() {
             ))}
           </ol>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- SERVICES PREVIEW ---------- */}
       <section className="section services-preview">
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">What we do</span>
-            <h2>Three places most projects start</h2>
-            <p>The full list runs to eleven categories — here’s where most conversations begin.</p>
-          </div>
+          <Reveal>
+            <div className="section-head">
+              <span className="eyebrow eyebrow--lg">What we do</span>
+              <h2>Where most projects begin</h2>
+            </div>
+          </Reveal>
           <div className="services-preview__grid">
-            {featured.map((cat) => (
-              <div className="service-card" key={cat.slug}>
-                <FlameDivider className="service-card__flame" color="var(--emerald)" />
-                <h3>{cat.category}</h3>
-                <p>{cat.tagline}</p>
-                <ul>
-                  {cat.services.slice(0, 3).map((s) => (
-                    <li key={s.name}>{s.name}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {featured.map((cat, i) => {
+              const Icon = categoryIcons[cat.slug];
+              return (
+                <Reveal delay={Math.min(i, 4) as 0 | 1 | 2 | 3 | 4} key={cat.slug}>
+                  <div className="service-card">
+                    <div className="service-card__icon">{Icon && <Icon />}</div>
+                    <h3>{cat.category}</h3>
+                    <p>{cat.tagline}</p>
+                    <ul>
+                      {cat.services.slice(0, 3).map((s) => (
+                        <li key={s.name}>{s.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
           <div className="services-preview__cta">
             <Link to="/services" className="btn btn-primary">See all services</Link>
@@ -147,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* ---------- CLIENTS TEASER ---------- */}
-      <section className="section clients-teaser">
+      <Reveal as="section" className="section clients-teaser">
         <div className="container clients-teaser__inner">
           <div>
             <span className="eyebrow">Trusted by</span>
@@ -162,10 +180,10 @@ export default function Home() {
             </span>
           </Link>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- TESTIMONIAL ---------- */}
-      <section className="section testimonial">
+      <Reveal as="section" className="section testimonial">
         <div className="container">
           <div className="testimonial__card">
             <FlameDivider color="var(--gold)" />
@@ -183,7 +201,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- CONTACT CTA ---------- */}
       <section className="cta-band">
@@ -199,9 +217,20 @@ export default function Home() {
   );
 }
 
-function PillarCard({ index, title, body }: { index: string; title: string; body: string }) {
+function PillarCard({
+  icon,
+  index,
+  title,
+  body,
+}: {
+  icon: React.ReactNode;
+  index: string;
+  title: string;
+  body: string;
+}) {
   return (
     <div className="pillar-card">
+      <div className="pillar-card__icon">{icon}</div>
       <span className="pillar-card__label">{index}</span>
       <h3>{title}</h3>
       <p>{body}</p>
