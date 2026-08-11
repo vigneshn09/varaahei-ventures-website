@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo-header.png';
 import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_HREF, SOCIAL_LINKS, WHATSAPP_URL } from '../data/site';
+import { InstagramIcon, XIcon, FacebookIcon, YoutubeIcon, WhatsAppSmallIcon } from './SocialIcons';
 import './Footer.css';
 
 export default function Footer() {
@@ -17,11 +18,11 @@ export default function Footer() {
             websites, apps, AI, and the systems that run behind them.
           </p>
           <div className="footer-social">
-            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
-            <a href={SOCIAL_LINKS.x} target="_blank" rel="noreferrer" aria-label="X (Twitter)">X</a>
-            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook">FB</a>
-            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube">YT</a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp">WA</a>
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+            <a href={SOCIAL_LINKS.x} target="_blank" rel="noreferrer" aria-label="X (Twitter)"><XIcon /></a>
+            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FacebookIcon /></a>
+            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><YoutubeIcon /></a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="WhatsApp"><WhatsAppSmallIcon /></a>
           </div>
         </div>
 

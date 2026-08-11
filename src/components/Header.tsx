@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo-header.png';
 import { WHATSAPP_URL } from '../data/site';
 import './Header.css';
 
