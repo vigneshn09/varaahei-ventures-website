@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import FlameDivider from '../components/FlameDivider';
 import EmberSceneGate from '../components/EmberSceneGate';
 import Reveal from '../components/Reveal';
+import ProcessFlow from '../components/ProcessFlow';
 import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
 import { categoryIcons } from '../components/ServiceIcons';
 import logo from '../assets/images/logo-full.png';
@@ -116,17 +117,7 @@ export default function Home() {
             <h2>Seven stages. No guesswork.</h2>
             <p>A process that’s the same for every client, because a repeatable process is what makes the outcome predictable.</p>
           </div>
-          <ol className="how__steps">
-            {processSteps.map((step, i) => (
-              <li key={step.title}>
-                <span className="how__num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <ProcessFlow steps={processSteps} />
         </div>
       </Reveal>
 

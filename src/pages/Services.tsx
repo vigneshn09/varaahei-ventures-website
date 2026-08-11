@@ -1,8 +1,12 @@
 import PageHero from '../components/PageHero';
 import { categoryIcons } from '../components/ServiceIcons';
+import Reveal from '../components/Reveal';
+import { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { serviceCatalog } from '../data/content';
 import './Services.css';
+
+const CapabilityChart = lazy(() => import('../components/CapabilityChart'));
 
 export default function Services() {
   return (
@@ -12,6 +16,16 @@ export default function Services() {
         title="Eleven categories. One team building all of them."
         description="From your first website to the systems running behind it — here’s everything we build, organised the way you’ll actually need it."
       />
+
+      <section className="section services-overview">
+        <div className="container">
+          <Reveal>
+            <Suspense fallback={<div className="capability-chart__loading" />}>
+              <CapabilityChart />
+            </Suspense>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="section services-index">
         <div className="container">

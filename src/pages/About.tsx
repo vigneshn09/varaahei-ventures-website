@@ -1,5 +1,6 @@
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
+import ProcessFlow from '../components/ProcessFlow';
 import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
 import { processSteps } from '../data/content';
 import './About.css';
@@ -91,17 +92,7 @@ export default function About() {
             <h2>Our process, start to finish</h2>
             <p>The same seven stages for every client — a repeatable process is what makes the outcome predictable.</p>
           </div>
-          <ol className="how-detailed__list">
-            {processSteps.map((step, i) => (
-              <li key={step.title}>
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <ProcessFlow steps={processSteps} />
         </div>
       </Reveal>
     </>
