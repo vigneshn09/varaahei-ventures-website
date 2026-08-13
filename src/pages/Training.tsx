@@ -30,6 +30,23 @@ export default function Training() {
         </div>
       </section>
 
+      {/* ---------- CTA ---------- */}
+      <section className="training-cta">
+        <img src={heroBg} alt="" className="training-cta__bg" aria-hidden="true" />
+        <div className="container training-cta__inner">
+          <div>
+            <h2>Ready to learn how to build?</h2>
+            <p>Tell us what you'd like to build, and we'll put together a training plan around it.</p>
+          </div>
+          <div className="training-cta__actions">
+            <Link to="/contact" className="btn btn-on-dark">Enquire about training</Link>
+            <a href={`mailto:${EMAIL}?subject=Training%20Enquiry`} className="training-cta__email">
+              {EMAIL}
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- WHY THIS EXISTS ---------- */}
       <Reveal as="section" className="section training-why">
         <div className="container training-why__grid">
@@ -136,23 +153,6 @@ export default function Training() {
           </div>
         </div>
       </Reveal>
-
-      {/* ---------- CTA ---------- */}
-      <section className="training-cta">
-        <img src={heroBg} alt="" className="training-cta__bg" aria-hidden="true" />
-        <div className="container training-cta__inner">
-          <div>
-            <h2>Ready to learn how to build?</h2>
-            <p>Tell us what you'd like to build, and we'll put together a training plan around it.</p>
-          </div>
-          <div className="training-cta__actions">
-            <Link to="/contact" className="btn btn-on-dark">Enquire about training</Link>
-            <a href={`mailto:${EMAIL}?subject=Training%20Enquiry`} className="training-cta__email">
-              {EMAIL}
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

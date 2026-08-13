@@ -1,15 +1,14 @@
 import PageHero from '../components/PageHero';
 import { categoryIcons } from '../components/ServiceIcons';
 import Reveal from '../components/Reveal';
-import { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { serviceCatalog } from '../data/content';
 import servicesBanner from '../assets/images/services-banner.jpg';
 import './Services.css';
 
-const CapabilityChart = lazy(() => import('../components/CapabilityChart'));
-
 export default function Services() {
+  const totalServices = serviceCatalog.reduce((sum, cat) => sum + cat.services.length, 0);
+
   return (
     <>
       <PageHero
@@ -18,16 +17,16 @@ export default function Services() {
         description="From your first website to the systems running behind it — here’s everything we build, organised the way you’ll actually need it."
       />
 
-      <section className="section services-overview">
-        <img src={servicesBanner} alt="" className="services-overview__bg" aria-hidden="true" />
+      <Reveal as="section" className="section services-banner">
         <div className="container">
-          <Reveal>
-            <Suspense fallback={<div className="capability-chart__loading" />}>
-              <CapabilityChart />
-            </Suspense>
-          </Reveal>
+          <div className="services-banner__frame">
+            <img src={servicesBanner} alt="Connected systems — the way our services fit together" />
+            <div className="services-banner__caption">
+              <span>{totalServices} services. One connected way of working.</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </Reveal>
 
       <section className="section services-index">
         <div className="container">
