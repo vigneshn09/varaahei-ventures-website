@@ -16,10 +16,11 @@ const VB_W = 1000;
 const VB_H = 220;
 const MID_Y = 110;
 const AMP = 55;
+const X_INSET = 0.05; // keeps first/last node columns from overhanging the panel edges
 
 function buildNodes(n: number) {
   return Array.from({ length: n }, (_, i) => ({
-    x: (i / (n - 1)) * VB_W,
+    x: (X_INSET + (i / (n - 1)) * (1 - 2 * X_INSET)) * VB_W,
     y: MID_Y + (i % 2 === 0 ? -AMP : AMP),
   }));
 }

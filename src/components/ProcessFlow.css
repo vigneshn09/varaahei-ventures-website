@@ -7,7 +7,7 @@
   border-radius: var(--radius-l);
   background: linear-gradient(160deg, var(--navy) 0%, #131a45 100%);
   overflow: hidden;
-  padding: 56px 40px 40px;
+  padding: 56px 76px 40px;
   box-shadow: 0 40px 80px -30px rgba(11,14,46,0.5);
 }
 
@@ -120,7 +120,7 @@
   .process-flow__panel {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 48px 24px 32px;
+    padding: 48px 90px 32px;
   }
   .process-flow__panel::before {
     content: 'Swipe to see the full journey →';

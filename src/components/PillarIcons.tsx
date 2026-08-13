@@ -15,19 +15,18 @@ export function TargetIcon(props: IconProps) {
   );
 }
 
-/** Vision — telescope aimed at a star/target in the distance */
+/** Vision — a clear, open eye: seeing what's ahead */
 export function VisionIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
       <path
-        d="M5 22.5 21 11l2.3 3.2-16 11.5-2.3-3.2Z"
+        d="M3 17c3.6-6.5 9-9.8 14-9.8s10.4 3.3 14 9.8c-3.6 6.5-9 9.8-14 9.8S6.6 23.5 3 17Z"
         stroke="currentColor"
-        strokeWidth="1.6"
+        strokeWidth="1.7"
         strokeLinejoin="round"
       />
-      <circle cx="21" cy="11" r="2.6" stroke="currentColor" strokeWidth="1.6" />
-      <path d="M27 4.5 25.6 8M31 7l-3.8 1.3M29.5 11.8l-3.9-.8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-      <path d="M5 22.5 3 26.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="17" cy="17" r="5" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="17" cy="17" r="1.8" fill="currentColor" />
     </svg>
   );
 }
