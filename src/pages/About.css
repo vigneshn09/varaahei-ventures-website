@@ -101,3 +101,36 @@
   color: var(--orange);
   margin-bottom: 14px;
 }
+
+.about-visual { padding-top: 0; padding-bottom: 0; }
+
+.about-visual__frame {
+  position: relative;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(11,14,46,0.35);
+  border: 1px solid var(--line);
+}
+
+.about-visual__frame img {
+  width: 100%;
+  height: clamp(240px, 42vw, 460px);
+  object-fit: cover;
+  display: block;
+}
+
+.about-visual__caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(11,14,46,0.75) 0%, transparent 100%);
+  padding: 32px 32px 20px;
+}
+
+.about-visual__caption span {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 19px;
+}

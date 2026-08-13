@@ -25,20 +25,64 @@
 .faq-list li.is-open .faq-icon {
   background: linear-gradient(135deg, var(--saffron), var(--vermilion));
   border-color: transparent;
-  color: #fff;
 }
 
 .faq-icon {
+  position: relative;
   flex-shrink: 0;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1.5px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: var(--ink);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-icon__bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.32s cubic-bezier(0.65, 0, 0.35, 1), background 0.3s ease;
+}
+
+.faq-icon__bar--h {
+  width: 12px;
+  height: 1.6px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon__bar--v {
+  width: 1.6px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.faq-list li.is-open .faq-icon__bar {
+  background: #fff;
+}
+
+.faq-list li.is-open .faq-icon__bar--v {
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+}
+
+.faq-list li.is-open .faq-icon__bar--h {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Smooth height animation using the grid-rows collapse technique */
+.faq-answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.faq-list li.is-open .faq-answer-wrap {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
 }
 
 .faq-answer {
@@ -47,4 +91,8 @@
   line-height: 1.7;
   color: rgba(20,24,63,0.68);
   max-width: 640px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer-wrap, .faq-icon__bar { transition: none; }
 }

@@ -1,5 +1,7 @@
 import PageHero from '../components/PageHero';
 import { Link } from 'react-router-dom';
+import DeviceMockup from '../components/DeviceMockup';
+import Reveal from '../components/Reveal';
 import onnLogo from '../assets/images/onn-realty-logo.png';
 import { products } from '../data/content';
 import './Products.css';
@@ -21,35 +23,42 @@ export default function Products() {
         <div className="container">
           {products.length > 0 ? (
             <div className="products-grid">
-              {products.map((p) => (
-                <article className="product-card" key={p.name}>
-                  {p.logoKey && (
-                    <div className="product-card__image">
-                      <img src={logoMap[p.logoKey]} alt={`${p.name} logo`} />
-                    </div>
-                  )}
-                  <div className="product-card__body">
-                    <span className="eyebrow">{p.category}</span>
-                    <h3>{p.name}</h3>
-                    <p>{p.description}</p>
-                    <ul className="product-card__highlights">
-                      {p.highlights.map((h) => (
-                        <li key={h}>{h}</li>
-                      ))}
-                    </ul>
+              {products.map((p, i) => (
+                <Reveal delay={Math.min(i, 4) as 0 | 1 | 2 | 3 | 4} key={p.name}>
+                  <article className="product-card">
                     {p.url && (
-                      <a href={p.url} target="_blank" rel="noreferrer" className="btn btn-ghost">
-                        Visit site ↗
-                      </a>
+                      <DeviceMockup url={p.url.replace('https://', '')}>
+                        <div className="product-card__preview">
+                          {p.logoKey && <img src={logoMap[p.logoKey]} alt={`${p.name} logo`} />}
+                          <span className="product-card__live-badge">● Live</span>
+                        </div>
+                      </DeviceMockup>
                     )}
-                  </div>
-                </article>
+                    <div className="product-card__body">
+                      <span className="eyebrow">{p.category}</span>
+                      <h3>{p.name}</h3>
+                      <p>{p.description}</p>
+                      <ul className="product-card__highlights">
+                        {p.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                      {p.url && (
+                        <a href={p.url} target="_blank" rel="noreferrer" className="btn btn-ghost">
+                          Visit site ↗
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                </Reveal>
               ))}
 
-              <div className="product-card product-card--placeholder">
-                <p>Your project could be featured here next.</p>
-                <Link to="/contact" className="btn btn-primary">Start a project</Link>
-              </div>
+              <Reveal delay={Math.min(products.length, 4) as 0 | 1 | 2 | 3 | 4}>
+                <div className="product-card product-card--placeholder">
+                  <p>Your project could be featured here next.</p>
+                  <Link to="/contact" className="btn btn-primary">Start a project</Link>
+                </div>
+              </Reveal>
             </div>
           ) : (
             <div className="products-empty">

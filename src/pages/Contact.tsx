@@ -1,7 +1,40 @@
 import { type FormEvent, useState } from 'react';
 import PageHero from '../components/PageHero';
+import Reveal from '../components/Reveal';
+import { WhatsAppSmallIcon } from '../components/SocialIcons';
 import { ADDRESS, EMAIL, PHONE_DISPLAY, WHATSAPP_URL } from '../data/site';
 import './Contact.css';
+
+function MapPinIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <circle cx="12" cy="10" r="2.6" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <rect x="2.5" y="5" width="19" height="14" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M3.5 6.5 12 13l8.5-6.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function PhoneCallIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M4.5 4h3.8l1.4 4.6-2.3 1.9a13.8 13.8 0 0 0 6.1 6.1l1.9-2.3 4.6 1.4v3.8c0 1-.9 1.8-1.9 1.7a17.6 17.6 0 0 1-15.3-15.3C4.7 4.9 4.5 4 4.5 4Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -22,7 +55,7 @@ export default function Contact() {
 
       <section className="section contact-section">
         <div className="container contact-grid">
-          <div className="contact-form-wrap">
+          <Reveal className="contact-form-wrap">
             {submitted ? (
               <div className="form-success">
                 <h3>Thank you — we’ve received your message.</h3>
@@ -73,26 +106,40 @@ export default function Contact() {
                 <p className="form-note">This form isn’t connected to an inbox yet — it will be wired up before launch.</p>
               </form>
             )}
-          </div>
+          </Reveal>
 
-          <aside className="contact-info">
-            <div className="contact-info__block">
-              <h3>Address</h3>
-              <p>{ADDRESS.line1}<br />{ADDRESS.line2}</p>
-            </div>
-            <div className="contact-info__block">
-              <h3>Email</h3>
-              <p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
-            </div>
-            <div className="contact-info__block">
-              <h3>Phone</h3>
-              <p>{PHONE_DISPLAY}</p>
-            </div>
-            <div className="contact-info__block">
-              <h3>WhatsApp</h3>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn btn-ghost">Chat with us</a>
-            </div>
-          </aside>
+          <Reveal as="div" delay={1}>
+            <aside className="contact-info">
+              <div className="contact-info__block">
+                <div className="contact-info__icon"><MapPinIcon /></div>
+                <div>
+                  <h3>Address</h3>
+                  <p>{ADDRESS.line1}<br />{ADDRESS.line2}</p>
+                </div>
+              </div>
+              <div className="contact-info__block">
+                <div className="contact-info__icon"><MailIcon /></div>
+                <div>
+                  <h3>Email</h3>
+                  <p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+                </div>
+              </div>
+              <div className="contact-info__block">
+                <div className="contact-info__icon"><PhoneCallIcon /></div>
+                <div>
+                  <h3>Phone</h3>
+                  <p>{PHONE_DISPLAY}</p>
+                </div>
+              </div>
+              <div className="contact-info__block">
+                <div className="contact-info__icon contact-info__icon--whatsapp"><WhatsAppSmallIcon /></div>
+                <div>
+                  <h3>WhatsApp</h3>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="btn btn-ghost">Chat with us</a>
+                </div>
+              </div>
+            </aside>
+          </Reveal>
         </div>
       </section>
     </>

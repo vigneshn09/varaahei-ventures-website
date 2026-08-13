@@ -95,6 +95,31 @@ input:focus, select:focus, textarea:focus {
   color: var(--cream);
 }
 
+.contact-info__block {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-info__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240,166,58,0.14);
+  border: 1px solid rgba(240,166,58,0.25);
+  color: var(--saffron);
+}
+
+.contact-info__icon--whatsapp {
+  background: rgba(12,107,78,0.2);
+  border-color: rgba(12,107,78,0.35);
+  color: #4ADE80;
+}
+
 .contact-info__block h3 {
   font-size: 12.5px;
   font-weight: 700;

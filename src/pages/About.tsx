@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal';
 import ProcessFlow from '../components/ProcessFlow';
 import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
 import { processSteps } from '../data/content';
+import aboutDesk from '../assets/images/about-desk.jpg';
 import './About.css';
 
 export default function About() {
@@ -13,6 +14,17 @@ export default function About() {
         title="A studio built to actually finish what it starts"
         description="Varaahei Ventures is a technology and growth studio based in Coimbatore, working with businesses across India that are ready to move from manual processes to systems that scale with them."
       />
+
+      <Reveal as="section" className="section about-visual">
+        <div className="container">
+          <div className="about-visual__frame">
+            <img src={aboutDesk} alt="A designer's desk mid-project — wireframes, code, and planning notes" />
+            <div className="about-visual__caption">
+              <span>Where the work actually happens</span>
+            </div>
+          </div>
+        </div>
+      </Reveal>
 
       <Reveal as="section" className="section about-who">
         <div className="container about-who__grid">

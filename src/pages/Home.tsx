@@ -7,6 +7,7 @@ import { TargetIcon, VisionIcon, MissionIcon } from '../components/PillarIcons';
 import { categoryIcons } from '../components/ServiceIcons';
 import logo from '../assets/images/logo-full.png';
 import onnLogo from '../assets/images/onn-realty-logo.png';
+import heroBg from '../assets/images/hero-bg.jpg';
 import { processSteps, serviceCatalog } from '../data/content';
 import './Home.css';
 
@@ -196,6 +197,7 @@ export default function Home() {
 
       {/* ---------- CONTACT CTA ---------- */}
       <section className="cta-band">
+        <img src={heroBg} alt="" className="cta-band__bg" aria-hidden="true" />
         <div className="container cta-band__inner">
           <div>
             <h2>Have a project in mind?</h2>

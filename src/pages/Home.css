@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 22px;
+  padding: 50px;
   box-shadow: 0 30px 70px rgba(11,14,46,0.12);
   overflow: hidden;
 }
@@ -101,7 +101,7 @@
 @media (max-width: 940px) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__mark { order: -1; margin-bottom: 12px; }
-  .hero__mark-plate { width: 220px; height: 220px; padding: 16px; }
+  .hero__mark-plate { width: 220px; height: 220px; padding: 32px; }
 }
 
 /* ================= PILLARS ================= */
@@ -468,6 +468,17 @@
   overflow: hidden;
 }
 
+.cta-band__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 .cta-band::before {
   content: '';
   position: absolute;
@@ -480,6 +491,7 @@
 }
 
 .cta-band__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;

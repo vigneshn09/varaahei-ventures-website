@@ -1,21 +1,37 @@
 import { Link } from 'react-router-dom';
-import PageHero from '../components/PageHero';
+import Reveal from '../components/Reveal';
 import FlameDivider from '../components/FlameDivider';
 import { trainingTracks } from '../data/content';
 import { EMAIL } from '../data/site';
+import trainingHero from '../assets/images/training-hero.jpg';
+import heroBg from '../assets/images/hero-bg.jpg';
 import './Training.css';
 
 export default function Training() {
   return (
     <>
-      <PageHero
-        eyebrow="Training"
-        title="Learn to build with AI — not just talk about it."
-        description="We teach people how to actually use AI tools to build real websites, applications, and games — the same tools and workflow we use ourselves, every day, to ship client work."
-      />
+      <section className="training-hero">
+        <div className="container training-hero__grid">
+          <div className="training-hero__copy">
+            <span className="eyebrow">Training</span>
+            <h1>Learn to build with AI — not just talk about it.</h1>
+            <p>
+              We teach people how to actually use AI tools to build real
+              websites, applications, and games — the same tools and workflow
+              we use ourselves, every day, to ship client work.
+            </p>
+            <div className="training-hero__actions">
+              <Link to="/contact" className="btn btn-primary">Enquire about training</Link>
+            </div>
+          </div>
+          <div className="training-hero__visual">
+            <img src={trainingHero} alt="Learning to build with AI tools, hands-on" />
+          </div>
+        </div>
+      </section>
 
       {/* ---------- WHY THIS EXISTS ---------- */}
-      <section className="section training-why">
+      <Reveal as="section" className="section training-why">
         <div className="container training-why__grid">
           <div>
             <span className="eyebrow">Why we teach this</span>
@@ -42,10 +58,10 @@ export default function Training() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- TRACKS ---------- */}
-      <section className="section training-tracks">
+      <Reveal as="section" className="section training-tracks">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">What you can learn</span>
@@ -66,10 +82,10 @@ export default function Training() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- TRAINER ---------- */}
-      <section className="section trainer-section">
+      <Reveal as="section" className="section trainer-section">
         <div className="container trainer-card">
           <div className="trainer-card__badge">
             <FlameDivider color="var(--saffron)" />
@@ -87,10 +103,10 @@ export default function Training() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- FORMAT ---------- */}
-      <section className="section training-format">
+      <Reveal as="section" className="section training-format">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">How it runs</span>
@@ -119,10 +135,11 @@ export default function Training() {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* ---------- CTA ---------- */}
       <section className="training-cta">
+        <img src={heroBg} alt="" className="training-cta__bg" aria-hidden="true" />
         <div className="container training-cta__inner">
           <div>
             <h2>Ready to learn how to build?</h2>

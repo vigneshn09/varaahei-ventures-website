@@ -189,6 +189,17 @@
   overflow: hidden;
 }
 
+.training-cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 .training-cta::before {
   content: '';
   position: absolute;
@@ -248,4 +259,60 @@
 @media (max-width: 560px) {
   .format-grid { grid-template-columns: 1fr; }
   .trainer-card { padding: 32px 26px; }
+}
+
+/* ---------- CUSTOM SPLIT HERO ---------- */
+.training-hero {
+  padding: 68px 0 88px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.training-hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.training-hero__copy h1 {
+  font-size: clamp(32px, 4.4vw, 48px);
+  margin-top: 14px;
+  max-width: 560px;
+}
+
+.training-hero__copy p {
+  margin-top: 20px;
+  font-size: 17px;
+  color: rgba(20,24,63,0.68);
+  max-width: 480px;
+}
+
+.training-hero__actions { margin-top: 30px; }
+
+.training-hero__visual {
+  position: relative;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -28px rgba(11,14,46,0.32);
+}
+
+.training-hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(240,166,58,0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.training-hero__visual img {
+  width: 100%;
+  height: clamp(260px, 32vw, 420px);
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .training-hero__grid { grid-template-columns: 1fr; }
+  .training-hero__visual { order: -1; }
 }
